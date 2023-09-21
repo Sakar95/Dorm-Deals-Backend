@@ -5,8 +5,8 @@ import jwt from "jsonwebtoken";
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   auth: {
-    user: "rishujain0721@gmail.com", // Replace with your admin email address
-    pass: "nbmwdajxwxgzopqo", // Replace with your admin email password
+    user: "sk.codev@gmail.com", // Replace with your admin email address
+    pass: "atawrnvzszekvgwt", // Replace with your admin email password
   },
 });
 
@@ -34,8 +34,8 @@ const signup = async (req, res) => {
     const verificationLink = `http://localhost:3000/verify-email?token=${verificationToken}`;
 
     await transporter.sendMail({
-      from: "rishujain0721@gmail.com", // Replace with your admin email address
-      to: "rishujain7217@gmail.com", // User's email
+      from: "sk.codev@gmail.com", // Replace with your admin email address
+      to: "sk4sakar@gmail.com", // User's email
       subject: "Verify your email",
       text: `Click the following link to verify your email: ${verificationLink}`,
     });
@@ -67,7 +67,6 @@ const verifyEmail = async (req, res) => {
     if (user) {
       user.isVerified = true;
       await user.save();
-      console.log("sxdcfgvhjbnkm");
       res.send({ message: "Email verification successful." });
     } else {
       res
